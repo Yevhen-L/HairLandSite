@@ -2,19 +2,21 @@
   "name": "hairlandsite",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "start": "nodemon backend/server.js",
-    "client": "npm start --prefix frontend/"
+    "start": "nodemon server.js",
+    "client": "npm start --prefix frontend"
   },
   "keywords": [],
   "author": "Yevhen <ujeen2101@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "colors": "^1.4.0",
     "dotenv": "^16.4.1",
     "express": "^4.18.2",
     "mongoose": "^8.1.1",
     "nodemon": "^3.0.3"
+  },
+  "devDependencies": {
+    "colors": "^1.4.0"
   }
 }
