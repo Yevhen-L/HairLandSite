@@ -1,42 +1,36 @@
-// require("colors");
+require("colors");
 
-// const express = require("express");
+const logger = require("morgan");
+const cors = require("cors");
+const express = require("express");
 
-// const path = require("path");
+const path = require("path");
 
-// const configPath = path.join(__dirname, "config", ".env");
+const configPath = path.join(__dirname, "..", "config", ".env");
 
-// require("dotenv").config({ path: configPath });
+require("dotenv").config({ path: configPath });
 
-// const connectDB = require("../config/ConnectDB");
-// // const notFoundRoutes = require("./middlewares/NotFoundRoutes");
-// // const errorHandler = require("./middlewares/errorHandler");
+const connectDB = require("../config/ConnectDB");
+const notFoundRoutes = require("../backend/middlewares/NotFoundRoutes");
+const errorHandler = require("../backend/middlewares/errorHandler");
 
-// const app = express();
+const app = express();
 
-// app.use(express.urlencoded({ extended: false }));
-// app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
-// const formatsLogger = app.get("env") === "development" ? "dev" : "short";
+const formatsLogger = app.get("env") === "development" ? "dev" : "short";
 
-// // app.use(logger(formatsLogger));
-// // app.use(cors());
-// //
+app.use(logger(formatsLogger));
+app.use(cors());
 
-// // app.use("/api/v1", require("./routes/api/ContactsRoutes"));
+app.use("*", notFoundRoutes);
+app.use(errorHandler);
 
-// // app.use("*", notFoundRoutes);
-// // app.use(errorHandler);
+const { PORT } = process.env;
 
-// app.use((err, req, res, next) => {
-//   res.status(500).json({ message: err.message });
-// });
+connectDB();
 
-// const { PORT } = process.env;
-
-// connectDB();
-
-// app.listen(PORT, () => {
-//   console.log(`Server running on port: ${PORT}.`.brightGreen.bold.italic);
-// });
-console.log("hello!!!");
+app.listen(PORT, () => {
+  console.log(`Server running on port: ${PORT}.`.blue.bold);
+});
