@@ -2,7 +2,7 @@
   "name": "hairlandsite",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "start": "nodemon server.js",
     "client": "npm start --prefix frontend"
@@ -15,8 +15,11 @@
     "cors": "^2.8.5",
     "dotenv": "^16.4.1",
     "express": "^4.18.2",
+    "i": "^0.3.7",
     "mongoose": "^8.1.1",
     "morgan": "^1.10.0",
-    "nodemon": "^3.0.3"
+    "nodemon": "^3.0.3",
+    "npm": "^10.4.0",
+    "swagger-ui-express": "^5.0.0"
   }
 }

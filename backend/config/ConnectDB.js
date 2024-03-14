@@ -1,11 +1,11 @@
-require("../backend/node_modules/colors");
+require("colors");
 const path = require("path");
 
-const configPath = path.join(__dirname, "..", "config", ".env");
+const configPath = path.join(__dirname, ".", "config", ".env");
 
-require("../backend/node_modules/dotenv").config({ path: configPath });
+require("dotenv").config({ path: configPath });
 
-const { connect } = require("../backend/node_modules/mongoose");
+const { connect } = require("mongoose");
 
 const connectDB = async () => {
   try {

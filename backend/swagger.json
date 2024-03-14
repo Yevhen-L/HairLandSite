@@ -1,0 +1,91 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "HairLandSite",
+    "version": "1.0.0",
+    "description": "HairLandSite is an application designed to ..."
+  },
+  "security": [],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "servers": [
+    {
+      "url": "http://localhost:5050"
+    },
+    {
+      "url": "https://github.com/Yevhen-L/HairLandSite"
+    }
+  ],
+  "tags": [
+    {
+      "name": "1",
+      "description": "Endpoints of 1"
+    },
+    {
+      "name": "2",
+      "description": "Endpoint of 2"
+    },
+    {
+      "name": "3",
+      "description": "Endpoints of 3"
+    },
+    {
+      "name": "4",
+      "description": "Endpoint of 4"
+    },
+    {
+      "name": "5",
+      "description": "Endpoint of 5"
+    },
+    {
+      "name": "6",
+      "description": "Endpoint of 6"
+    },
+    {
+      "name": "7",
+      "description": "Endpoint of 7"
+    },
+    {
+      "name": "8",
+      "description": "Endpoint of 8"
+    }
+  ],
+  "paths": {
+    "/users": {
+      "get": {
+        "summary": "Отримати список користувачів",
+        "description": "Отримати список користувачів системи.",
+        "responses": {
+          "200": {
+            "description": "Список користувачів успішно отриманий."
+          }
+        }
+      }
+    },
+    "/users/{id}": {
+      "get": {
+        "summary": "Отримати дані користувача за ідентифікатором",
+        "description": "Отримати дані користувача за його ідентифікатором.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Ідентифікатор користувача"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Дані користувача успішно отримані."
+          },
+          "404": {
+            "description": "Користувача з таким ідентифікатором не знайдено."
+          }
+        }
+      }
+    }
+  }
+}
